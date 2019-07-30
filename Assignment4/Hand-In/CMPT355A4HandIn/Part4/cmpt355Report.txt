@@ -1,0 +1,30 @@
+-- Name: Yinsheng Dong
+-- Student Number: 11148648
+-- NSID: yid164
+-- CMPT355
+
+
+1. I added a schema in my database called audit, and I created 3 audit tables in this schema
+   named employee_history, employee_jobs_audit and employees_audit for auditing the user operations
+   for employee table and employee_jobs table, and recording the history data that user made change.
+   
+   I alos create triggers for employee_history, employee_jobs and employees_audit for trigering 
+   employees and history table
+   
+   I updated the load_procedure for trun off the triggers and add data to the audit/history tables
+   
+   I changed the ph_number column in phone_number table because the ph_number limit 7 digit,
+   but I need actually more, so I altered it to 11
+   
+   This assignment that I did based on the solution that from assignment 3
+
+2. I created 4 triggers, 1 for employees_audit, 1 for employee_job_audit and 2 for employee_history.
+   In the trigger for employees_audit, I used insert, delete, update, and triggering after every operation made.
+   In the trigger for employee_jobs, it same as trigger for employees_audit, insert, update, delete after operation did.
+   In triggers for employee_history, I insert the data firstly when the employees fire, and update when the employee_jobs changed.
+   I did these because I need to audit every operation that made, so I used after, when the TG_OP called,
+   it will be automatically added a row in these audit/history tables
+
+3. When I try to use my load code to load new data to database, it was sometimes very slow, I though it could be too many things in.
+   When I changed the code, it has some errors on it for syntax and dead loop, but I think it has been good right now.
+   When I load new datas, I tired to do a new load table for loading, but I think it would be not efficient, so I just changed it as now.

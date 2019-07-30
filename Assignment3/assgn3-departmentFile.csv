@@ -1,0 +1,7 @@
+DepartmentCode,DepartmentName,DeptMgrJobCode,DeptMgrJobTitle,EffectiveDate,ExpiryDate
+BNK,Banking,02-001,Branch Manager,01/01/1982,
+ADM,Administration,10-006,Vice President Of Operations,01/01/1982,
+LOA,Loans,10-006,Vice President Of Operations,01/01/1982,
+FIN,Financial Services,10-005,Vice President Of Finance,01/01/1982,
+IT,Information Technology,10-003,Chief Technical Officer,01/01/1982,
+EXEC,Executive,10-001,Chief Executive Officer,01/01/1982,

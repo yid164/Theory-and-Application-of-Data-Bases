@@ -1,0 +1,64 @@
+Name: Yinsheng Dong
+Student Number: 11148648
+NSID: yid164
+Lecture: CMPT355
+
+
+
+1. All possible candidate key(s) in departments table
+	(1) id(Int)
+	(2) code VARCHER(10)
+	(3) name VARCHER (100)
+
+	If we didn't use a surrogate key id in enrollments table, I would like to use natural primary key that composited student_id INT and section_id INT, because we can identify unique record only by composite student_id and section_id to accurate which student takes which section, so we could analyse the student enrollment
+
+2. 
+	(a) We could use two approaches to make sure:
+		1. CHECK clause
+		2. DOMAIN statement
+		
+	(2)
+		CHECK clause DDL:
+		CREATE TABLE students(
+  		id INT,
+  		student_number INT,
+  		first_name VARCHAR(100),
+  		last_name VARCHAR(100),
+  		email_address VARCHAR(100),
+  		major_code VARCHAR(10),
+  		gender CHAR(1) CHECK (gender IN ('M','F','U','N')),
+  		PRIMARY KEY (id));
+  		
+  		DOMAIN clause DDL:
+  		CREATE DOMAIN genderTypes AS VARCHAR(1)
+		DEFAULT 'U'
+		CHECK (VALUE IN ('M', 'F', 'U', 'N'));
+
+		CREATE TABLE students(
+  		id INT,
+  		student_number INT,
+  		first_name VARCHAR(100),
+  		last_name VARCHAR(100),
+  		email_address VARCHAR(100),
+  		major_code VARCHAR(10),
+  		gender genderTypes NOT NULL,
+  		PRIMARY KEY (id));
+  		
+  	(3) I could add a CHECK clause to make sure this doesn't happen.
+  		
+  		CODE:
+  		
+  		CREATE TABLE sections(
+  		id INT,
+  		section_code VARCHAR(10),
+  		course_id INT NOT NULL REFERENCES courses,
+  		lec_type VARCHAR(10) NOT NULL,
+  		term_id INT NOT NULL REFERENCES terms,
+  		max_enrollment INT NOT NULL, 
+  		num_enrolled INT DEFAULT 0 CHECK (num_enrolled <= max_enrollment),
+  		instructor_id INT REFERENCES instructors,
+  		days VARCHAR(3),
+  		start_time TIME,
+  		end_time TIME,
+  		location_code VARCHAR(20),
+  		PRIMARY KEY (id));

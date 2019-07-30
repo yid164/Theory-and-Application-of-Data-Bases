@@ -1,0 +1,7 @@
+1. enrollments_id INT
+2. assessments_id INT
+3. points NUMERIC
+4. total_points NUMERIC
+5. weight NUMERIC
+6. due_date DATE
+7. section_id INT
